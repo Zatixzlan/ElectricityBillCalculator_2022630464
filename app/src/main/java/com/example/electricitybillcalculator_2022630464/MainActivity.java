@@ -21,9 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spMonth, spRebate;
     private EditText etKwh;
     private TextView tvTotal, tvFinal;
-
     private DBHelper db;
-
     private double lastTotal = -1;
     private double lastFinal = -1;
     private int lastKwh = 0;
@@ -85,10 +83,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculate() {
+        etKwh.setError(null);
         String kwhText = etKwh.getText().toString().trim();
 
         if (TextUtils.isEmpty(kwhText)) {
-            etKwh.setError("Enter kWh");
+            etKwh.setError("Please enter kWh used");
+            etKwh.requestFocus();
             return;
         }
 
@@ -97,11 +97,13 @@ public class MainActivity extends AppCompatActivity {
             kwh = Integer.parseInt(kwhText);
         } catch (Exception e) {
             etKwh.setError("Invalid number");
+            etKwh.requestFocus();
             return;
         }
 
         if (kwh <= 0) {
             etKwh.setError("Must be > 0");
+            etKwh.requestFocus();
             return;
         }
 
