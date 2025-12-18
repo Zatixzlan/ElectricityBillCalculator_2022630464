@@ -135,7 +135,7 @@
                     android:id="@+id/tvUrl"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="https://github.com/Zatixzlan/ElectricityBillCalculator"
+                    android:text="https://github.com/Zatixzlan/ElectricityBillCalculator_2022630464"
                     android:autoLink="web"
                     android:textColor="#7C3AED"
                     android:textSize="14sp"
